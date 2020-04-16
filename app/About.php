@@ -28,8 +28,8 @@ class About extends AdminModel
     public function fields()
     {
         return [
-            'name' => 'name:Názov|placeholder:Zadajte názov článku|required|max:90',
-            'content' => 'name:Obsah článku|type:editor|required',
+            'name' => 'name:Názov|placeholder:Zadajte názov článku|required|max:90|locale',
+            'content' => 'name:Obsah článku|type:editor|required|locale',
         ];
     }
 }
