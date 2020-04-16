@@ -159,3 +159,7 @@ body {
 body {
     background: #eee;
 }
+
+
+/* Unnecessary css fix */
+.CAE_Uploadable_wrapper { display: none !important }
