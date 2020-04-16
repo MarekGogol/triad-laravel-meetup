@@ -37,12 +37,12 @@ return [
     /*
      * Add multi language mutations support
      */
-    'localization' => false,
+    'localization' => true,
 
     /*
      * Gettext support
      */
-    'gettext' => false,
+    'gettext' => true,
 
     /*
      * Frontend editor for simple text translates

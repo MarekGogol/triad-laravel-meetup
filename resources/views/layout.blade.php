@@ -23,8 +23,11 @@
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="/">SK</a></li>
-                <li><a href="/">EN</a></li>
+                @foreach( Localization::getLanguages() as $lang )
+                <li class="{{ Localization::get()->getKey() == $lang->getKey() ? 'active' : '' }}">
+                    <a href="/{{ $lang->slug }}">{{ $lang->slug }}</a>
+                </li>
+                @endforeach
               </ul>
             </div>
           </div>
