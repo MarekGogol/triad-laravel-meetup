@@ -4,6 +4,7 @@ namespace App;
 
 use Admin\Eloquent\AdminModel;
 use Admin\Fields\Group;
+use App\Admin\Buttons\MyCustomButton;
 
 class Author extends AdminModel
 {
@@ -31,4 +32,8 @@ class Author extends AdminModel
             'image' => 'name:Obrazok autora|type:file|required|image',
         ];
     }
+
+    protected $buttons = [
+        MyCustomButton::class,
+    ];
 }
