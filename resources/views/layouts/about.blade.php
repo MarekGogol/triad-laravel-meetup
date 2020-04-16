@@ -3,7 +3,7 @@
 @section('content')
 <div class="page">
     <!-- ARTICLE -->
-    <h1>Podstranka o nas</h1>
-    <p>obsah o nas...</p>
+    <h1>{{ $article->name }}</h1>
+    {!! $article->content !!}
 </div>
 @stop
