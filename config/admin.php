@@ -64,4 +64,9 @@ return [
      * Slugs History for 302 redirects of changed slugs
      */
     'sluggable_history' => false,
+
+    /*
+     * Admin roles support
+     */
+    'admin_roles' => true,
 ];
