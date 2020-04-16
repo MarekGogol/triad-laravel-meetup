@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'AboutController@index');
+Route::get('/', 'AboutController@index')->seo();
 
-Route::get('/blog', 'BlogController@index');
+Route::get('/blog', 'BlogController@index')->seo();
 Route::get('/blog/{article}', 'BlogController@show');
 
-Route::get('/authors', 'AuthorsController@index');
+Route::get('/authors', 'AuthorsController@index')->seo();
 Route::post('/authors', 'AuthorsController@store');
 
-Route::get('/products', 'ProductsController@index');
+Route::get('/products', 'ProductsController@index')->seo();
