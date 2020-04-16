@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use App\Article;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        return view('layouts.blog');
+        $articles = Article::all();
+
+        return view('layouts.blog', compact('articles'));
     }
 
-    public function show()
+    public function show($slug)
     {
-        return view('layouts.article');
+        $article = Article::findBySlugOrFail($slug);
+
+        return view('layouts.article', compact('article'));
     }
 }
