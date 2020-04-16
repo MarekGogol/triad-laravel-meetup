@@ -2,38 +2,58 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Admin\Eloquent\Authenticatable;
+use Admin\Fields\Group;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
+    /*
+     * Model created date, for ordering tables in database and in user interface
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $migration_date = '2016-07-09 17:27:57';
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
+    /*
+     * Template name
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $name = 'Administrátori';
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+    /*
+     * Template title
+     * Default ''
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $title = 'Upravte zoznam administrátorov';
+
+    /*
+     * Group
+     */
+    protected $group = 'settings';
+
+    /*
+     * Minimum page rows
+     * Default = 0
+     */
+    protected $minimum = 1;
+
+    /*
+     * Automatic form and database generation
+     * @name - field name
+     * @placeholder - field placeholder
+     * @type - field type | string/text/editor/select/integer/decimal/file/password
+     * ... other validation methods from laravel
+     */
+    protected function fields($row)
+    {
+        return [
+            'username' => 'name:Meno a priezvisko|placeholder:Zadajte meno a priezvisko administrátora|type:string|required|max:30',
+            'email' => 'name:Email|placeholder:Zadajte email administrátora|type:string|email|required|max:60|unique:users,email,'.(isset($row) ? $row->getKey() : 'NULL').',id,deleted_at,NULL',
+            'password' => 'name:Heslo|type:password|confirmed|min:4|max:40|'.(isset($row) ? '' : '|required'),
+            'avatar' => 'name:Profilová fotografia|type:file|image',
+            Group::fields([
+                'enabled' => 'name:Aktívny|type:checkbox|default:1',
+            ])->inline(),
+        ];
+    }
 }
