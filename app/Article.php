@@ -23,6 +23,11 @@ class Article extends AdminModel
     protected $sluggable = 'name';
 
     /*
+     * Enabled seo feature for given model
+     */
+    protected $seo = true;
+
+    /*
      * Automatic form and database generation
      * @name - field name
      * @placeholder - field placeholder

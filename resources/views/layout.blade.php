@@ -3,7 +3,14 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Wohoooo</title>
+    @metatags([
+        'title' => _('My website'),
+        'description' => _('My translatable description'),
+        'keywords' => _('my translatable keywords'),
+        'author' => 'https://marekgogol.sk',
+        'image' => asset('images/base/thumb.jpg'),
+    ])
+
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
   </head>
 

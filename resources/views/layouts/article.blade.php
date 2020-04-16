@@ -1,5 +1,7 @@
 @extends('layout')
 
+@seo($article)
+
 @section('content')
 <div class="page">
     <!-- ARTICLE -->

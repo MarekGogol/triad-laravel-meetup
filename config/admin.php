@@ -58,7 +58,7 @@ return [
     /*
      * Seo module for all routes
      */
-    'seo' => false,
+    'seo' => true,
 
     /*
      * Slugs History for 302 redirects of changed slugs
