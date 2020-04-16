@@ -39,5 +39,6 @@ class Article extends AdminModel
         'content' => 'name:Obsah článku|type:editor|required',
         'authors' => 'name:Zoznam autorov|belongsToMany:authors,name|canAdd',
         'image' => 'name:Obrazok|type:file|required|image',
+        'customfield' => 'name:My custom field|component:MyField',
     ];
 }
